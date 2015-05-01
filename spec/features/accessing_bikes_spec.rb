@@ -19,7 +19,7 @@ end
 feature 'When a member of the public returns a bike,' do
   scenario 'the bike cannot be docked if the station is full' do
     docking_station = DockingStation.new
-    20.times { docking_station.dock(Bike.new) }
+    docking_station.capacity.times { docking_station.dock(Bike.new) }
     expect { docking_station.dock(Bike.new) }.to raise_error 'Docking station full'
   end
 end
